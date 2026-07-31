@@ -49,7 +49,15 @@ h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; color: #0e7490; line-
 .pr-step-dot.saving .pr-step-circle { background: #f59e0b; color: #fff; border-color: #f59e0b; animation: pulse 1s infinite; }
 .pr-step-line { flex: 1; height: 3px; background: #e0f2fe; border-radius: 100px; transition: background 0.3s ease; min-width: 10px; }
 .pr-step-line.completed { background: linear-gradient(90deg, #10b981, #06b6d4); }
-.pr-section { background: #ffffff; border-radius: 16px; padding: 2rem; margin-bottom: 1.5rem; box-shadow: 0 8px 24px rgba(14,116,144,0.08); border: 1px solid #e0f2fe; position: relative; overflow: hidden; display: none; animation: fadeSlide 0.4s ease; }
+  .pr-section { 
+  background: #ffffff; 
+  border-radius: 16px; 
+  padding: 2rem; 
+  /* ... properti lainnya ... */
+  display: none; 
+  animation: fadeSlide 0.4s ease; 
+  scroll-margin-top: 20px;  /* 🆕 DITAMBAHKAN */
+}
 .pr-section.active-step { display: block; }
 @keyframes fadeSlide { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
 .pr-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #0e7490, #06b6d4, #22d3ee); }
@@ -501,12 +509,37 @@ if (targetStep < currentStep || dot.classList.contains('completed')) goToStep(ta
 });
 }
 function goToStep(step) {
-if (step < 1 || step > TOTAL_STEPS) return;
-currentStep = step;
-document.querySelectorAll('.pr-section').forEach(function(sec) { sec.classList.remove('active-step'); });
-var activeSection = document.querySelector('.pr-section[data-step="' + step + '"]');
-if (activeSection) { activeSection.classList.add('active-step'); activeSection.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-updateStepperVisual();
+  if (step < 1 || step > TOTAL_STEPS) return;
+  currentStep = step;
+  document.querySelectorAll('.pr-section').forEach(function(sec) { sec.classList.remove('active-step'); });
+  var activeSection = document.querySelector('.pr-section[data-step="' + step + '"]');
+  if (activeSection) {
+    activeSection.classList.add('active-step');
+    
+    // 🔧 PERBAIKAN SCROLL: tunggu animasi fadeSlide selesai, lalu scroll dengan offset
+    setTimeout(function() {
+      var stepperHeight = 0;
+      var stepper = document.querySelector('.pr-stepper');
+      if (stepper) stepperHeight = stepper.offsetHeight + 20;
+      
+      var sectionTop = activeSection.getBoundingClientRect().top + window.pageYOffset;
+      var targetY = sectionTop - stepperHeight - 10;
+      if (targetY < 0) targetY = 0;
+      
+      window.scrollTo({ top: targetY, behavior: 'smooth' });
+      
+      // 🔧 Auto-fokus ke field pertama yang bisa diisi
+      var firstInput = activeSection.querySelector('input:not([type="file"]):not([readonly]), select, textarea');
+      if (firstInput) {
+        setTimeout(function() {
+          try { firstInput.focus({ preventScroll: true }); } catch(e) { 
+            try { firstInput.focus(); } catch(e2) {} 
+          }
+        }, 500);
+      }
+    }, 80);
+  }
+  updateStepperVisual();
 }
 function updateStepperVisual() {
 document.querySelectorAll('.pr-step-dot').forEach(function(dot) {
