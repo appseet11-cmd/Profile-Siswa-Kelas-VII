@@ -138,18 +138,18 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;color:#0e7490;line-height:1.3
 .pr-footer p{font-size:0.85rem;margin-bottom:0.4rem}
 .pr-footer .pr-footer-divider{width:60px;height:2px;background:#22d3ee;margin:1.2rem auto}
 .pr-footer .pr-copyright{font-size:0.8rem;color:rgba(255,255,255,0.5);margin-top:0.8rem}
-.pr-loading-overlay{position:fVIIed;inset:0;background:rgba(14,116,144,0.85);display:none;align-items:center;justify-content:center;z-index:9999;flex-direction:column;gap:1.5rem;padding:1rem}
+.pr-loading-overlay{position:fixed;inset:0;background:rgba(14,116,144,0.85);display:none;align-items:center;justify-content:center;z-index:9999;flex-direction:column;gap:1.5rem;padding:1rem}
 .pr-loading-overlay.show{display:flex}
 .pr-spinner{width:60px;height:60px;border:5px solid rgba(255,255,255,0.2);border-top-color:#a5f3fc;border-radius:50%;animation:spin 1s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .pr-loading-text{color:white;font-size:1rem;font-weight:600;text-align:center}
 .pr-loading-sub{color:rgba(255,255,255,0.8);font-size:0.85rem;text-align:center}
-.pr-toast{position:fVIIed;bottom:30px;left:50%;width:90%;max-width:400px;margin-left:-45%;background:#0e7490;color:white;padding:14px 20px;border-radius:12px;font-size:14px;font-weight:600;box-shadow:0 12px 32px rgba(14,116,144,0.4);z-index:10000;opacity:0;visibility:hidden;transition:opacity 0.3s ease,visibility 0.3s ease;pointer-events:none;text-align:center}
+.pr-toast{position:fixed;bottom:30px;left:50%;width:90%;max-width:400px;margin-left:-45%;background:#0e7490;color:white;padding:14px 20px;border-radius:12px;font-size:14px;font-weight:600;box-shadow:0 12px 32px rgba(14,116,144,0.4);z-index:10000;opacity:0;visibility:hidden;transition:opacity 0.3s ease,visibility 0.3s ease;pointer-events:none;text-align:center}
 .pr-toast.show{opacity:1;visibility:visible}
 .pr-toast.success{background:#10b981}
 .pr-toast.error{background:#ef4444}
 .pr-toast.info{background:#0e7490}
-.pr-confirm-overlay{position:fVIIed;inset:0;background:rgba(15,23,42,0.75);display:none;align-items:center;justify-content:center;z-index:9998;padding:1rem}
+.pr-confirm-overlay{position:fixed;inset:0;background:rgba(15,23,42,0.75);display:none;align-items:center;justify-content:center;z-index:9998;padding:1rem}
 .pr-confirm-overlay.show{display:flex}
 .pr-confirm-box{background:white;border-radius:20px;max-width:480px;width:100%;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.3)}
 .pr-confirm-header{background:linear-gradient(135deg,#f59e0b 0%,#ff9800 100%);color:white;padding:1.5rem;text-align:center}
@@ -162,9 +162,7 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;color:#0e7490;line-height:1.3
 .pr-confirm-actions button{flex:1;padding:0.85rem;border-radius:12px;border:none;font-family:inherit;font-weight:700;font-size:0.95rem;cursor:pointer}
 .pr-confirm-btn-no{background:#fee2e2;color:#dc2626}
 .pr-confirm-btn-yes{background:linear-gradient(135deg,#10b981 0%,#059669 100%);color:white}
-
-/* ✅ MODAL HASIL KIRIM BARU */
-.pr-success-overlay{position:fVIIed;inset:0;background:rgba(15,23,42,0.82);display:none;align-items:center;justify-content:center;z-index:10002;padding:1rem;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.pr-success-overlay{position:fixed;inset:0;background:rgba(15,23,42,0.82);display:none;align-items:center;justify-content:center;z-index:10002;padding:1rem;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .pr-success-overlay.show{display:flex;animation:fadeIn 0.3s ease}
 .pr-success-modal{background:#fff;border-radius:24px;width:100%;max-width:560px;max-height:92vh;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,0.4);display:flex;flex-direction:column;animation:slideUp 0.4s cubic-bezier(0.16,1,0.3,1)}
 @keyframes slideUp{from{opacity:0;transform:translateY(30px) scale(0.97)}to{opacity:1;transform:translateY(0) scale(1)}}
@@ -206,8 +204,7 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;color:#0e7490;line-height:1.3
 .pr-success-btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(14,116,144,0.35)}
 .pr-success-btn-secondary{background:#f1f5f9;color:#475569}
 .pr-success-btn-secondary:hover{background:#e2e8f0}
-
-.pr-petunjuk-overlay{position:fVIIed;inset:0;background:rgba(15,23,42,0.78);display:none;align-items:center;justify-content:center;z-index:9996;padding:1rem;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.pr-petunjuk-overlay{position:fixed;inset:0;background:rgba(15,23,42,0.78);display:none;align-items:center;justify-content:center;z-index:9996;padding:1rem;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
 .pr-petunjuk-overlay.show{display:flex;animation:fadeIn 0.3s ease}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 .pr-petunjuk-modal{background:#fff;border-radius:24px;width:100%;max-width:720px;max-height:90vh;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,0.35);display:flex;flex-direction:column;animation:slideUp 0.4s cubic-bezier(0.16,1,0.3,1)}
@@ -249,7 +246,7 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;color:#0e7490;line-height:1.3
 .pr-petunjuk-btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(14,116,144,0.35)}
 .pr-petunjuk-btn-secondary{background:#f1f5f9;color:#475569}
 .pr-petunjuk-btn-secondary:hover{background:#e2e8f0}
-.guru-bk7-modal{position:fVIIed;inset:0;background:rgba(15,23,42,0.75);display:none;align-items:center;justify-content:center;z-index:9997;padding:1rem}
+.guru-bk7-modal{position:fixed;inset:0;background:rgba(15,23,42,0.75);display:none;align-items:center;justify-content:center;z-index:9997;padding:1rem}
 .guru-bk7-modal.show{display:flex}
 .guru-bk7-modal-content{background:#fff;border-radius:20px;width:100%;max-width:680px;max-height:90vh;overflow-y:auto;-webkit-overflow-scrolling:touch;box-shadow:0 24px 64px rgba(0,0,0,0.25);position:relative}
 .guru-bk7-modal-header{background:linear-gradient(135deg,#7c3aed 0%,#a855f7 100%);color:white;padding:1.5rem;border-radius:20px 20px 0 0;position:relative}
@@ -294,7 +291,7 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;color:#0e7490;line-height:1.3
 .guru-bk7-result-actions{display:flex;gap:0.6rem;margin-top:1rem;flex-wrap:wrap}
 .guru-bk7-result-actions .guru-bk7-btn{flex:1;min-width:140px;padding:0.75rem;font-size:0.88rem}
 .guru-bk7-btn-pdf{background:linear-gradient(135deg,#dc2626 0%,#ef4444 100%);color:white}
-.pdf-viewer-overlay{position:fVIIed;inset:0;background:rgba(15,23,42,0.92);display:none;align-items:center;justify-content:center;z-index:10003;padding:0.5rem}
+.pdf-viewer-overlay{position:fixed;inset:0;background:rgba(15,23,42,0.92);display:none;align-items:center;justify-content:center;z-index:10003;padding:0.5rem}
 .pdf-viewer-overlay.show{display:flex}
 .pdf-viewer-container{background:#fff;border-radius:16px;width:100%;max-width:900px;height:95vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.5)}
 .pdf-viewer-header{background:linear-gradient(135deg,#dc2626 0%,#ef4444 100%);color:white;padding:0.8rem 1rem;display:flex;align-items:center;gap:1rem;flex-shrink:0;flex-wrap:wrap}
@@ -380,8 +377,6 @@ background: white !important;
 </div>
 </div>
 </div>
-
-<!-- ✅ MODAL HASIL KIRIM SUKSES -->
 <div class="pr-success-overlay" id="prSuccessOverlay">
 <div class="pr-success-modal">
 <div class="pr-success-header">
@@ -436,7 +431,6 @@ background: white !important;
 </div>
 </div>
 </div>
-
 <div class="pr-loading-overlay" id="pr-loading">
 <div class="pr-spinner"></div>
 <div class="pr-loading-text" id="pr-loading-text">Mengirim data...</div>
@@ -518,6 +512,7 @@ background: white !important;
 <div class="pr-petunjuk-warning">
 <span style="font-size:1.2rem">🙏</span>
 <div><strong>Semoga berhasil!</strong> Jika masih gagal, pastikan koneksi internet stabil dan coba lagi beberapa saat kemudian.</div>
+</div>
 </div>
 </div>
 </div>
@@ -706,8 +701,6 @@ const NAMA_HARI_ID = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
 const DEFAULT_GURU_PASSWORD = '@bk56jakarta#';
 const LOGIN_TIMEOUT_MS = 15000;
 const PROGRESS_UPDATE_MS = 3000;
-
-// ✅ VARIABEL GLOBAL UNTUK MODAL HASIL KIRIM
 var lastSubmitResult = {
 pdf_url: '',
 foto_link: '',
@@ -716,7 +709,6 @@ nisn: '',
 kelas: '',
 record_id: ''
 };
-
 function openPetunjuk() {
 var overlay = document.getElementById('prPetunjukOverlay');
 if (overlay) {
@@ -793,8 +785,6 @@ var cleanup = function() { overlay.classList.remove('show'); };
 document.getElementById('prConfirmYes').onclick = function() { cleanup(); if (onYes) onYes(); };
 document.getElementById('prConfirmNo').onclick  = function() { cleanup(); if (onNo)  onNo();  };
 }
-
-// ✅ FUNGSI MODAL HASIL KIRIM SUKSES
 function showSuccessResult(result) {
 lastSubmitResult = {
 pdf_url: result.pdf_url || '',
@@ -863,7 +853,6 @@ setTimeout(function() {
 clearFormAfterSubmit();
 }, 200);
 }
-
 window.addEventListener('DOMContentLoaded', function() {
 initSignaturePad();
 var tgl = document.getElementById('pr-tanggal-isi');
@@ -1003,12 +992,6 @@ if (lbl) labelName = lbl.textContent.replace(/\*/g,'').trim();
 showToast('⚠️ Lengkapi: ' + labelName + (missing.length > 1 ? ' (+' + (missing.length-1) + ' lainnya)' : ''), 'error');
 return false;
 }
-for (var j = 0; j < requiredFields.length; j++) {
-if (!requiredFields[j].checkValidity()) {
-requiredFields[j].reportValidity();
-return false;
-}
-}
 return true;
 }
 function nextStep() {
@@ -1068,7 +1051,8 @@ var isValid = false;
 if (field.type === 'checkbox' || field.type === 'radio') {
 isValid = field.checked;
 } else {
-isValid = (field.value !== null && field.value !== undefined && String(field.value).trim() !== '');
+var val = String(field.value || '').trim();
+isValid = (val !== '');
 }
 if (!isValid) {
 var section = field.closest('.pr-section');
@@ -1121,39 +1105,8 @@ msg += ' ' + detail;
 msg += ' Cek: ' + missingFields.slice(0, 2).map(function(f){ return f.label; }).join(', ') + '...';
 }
 showToast(msg, 'error');
+console.log('❌ Field yang kosong:', missingFields.map(f => ({step: f.step, label: f.label, name: f.field.name})));
 return;
-}
-if (!form.checkValidity()) {
-var invalidField = null;
-for (var j = 0; j < requiredFields.length; j++) {
-if (!requiredFields[j].checkValidity()) {
-invalidField = requiredFields[j];
-break;
-}
-}
-if (!invalidField) {
-var allInputs = form.querySelectorAll('input, select, textarea');
-for (var k = 0; k < allInputs.length; k++) {
-if (allInputs[k].value && !allInputs[k].checkValidity()) {
-invalidField = allInputs[k];
-break;
-}
-}
-}
-if (invalidField) {
-var sec = invalidField.closest('.pr-section');
-if (sec && parseInt(sec.dataset.step) !== currentStep) {
-goToStep(parseInt(sec.dataset.step));
-}
-setTimeout(function() {
-try {
-invalidField.scrollIntoView({ behavior: 'smooth', block: 'center' });
-invalidField.focus({ preventScroll: true });
-} catch(e) { try { invalidField.focus(); } catch(e2){} }
-}, 400);
-showToast('⚠️ Format isian belum valid. Periksa kembali field yang disorot.', 'error');
-return;
-}
 }
 await doSubmitFinal();
 },
@@ -1214,7 +1167,6 @@ localStorage.setItem(STORAGE_PROFILE, JSON.stringify(localData));
 hideLoading();
 showToast('✅ Data tersimpan & PDF berhasil dibuat!', 'success');
 if (btn) btn.innerHTML = '✅ Terkirim!';
-// ✅ TAMPILKAN MODAL HASIL KIRIM (PENGGANTI ALERT LAMA)
 setTimeout(function() {
 showSuccessResult({
 pdf_url: result.pdf_url || '',
